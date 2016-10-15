@@ -14,7 +14,7 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application {
     private static final int PADDING = 5;
-    protected Button[][] buttons;
+    Button[][] buttons;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
