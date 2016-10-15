@@ -2,6 +2,7 @@ package sample;
 
 import javafx.event.EventHandler;
 import javafx.event.ActionEvent;
+import javafx.event.WeakEventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -20,8 +21,15 @@ public class JeopardyQuestionLaunch implements EventHandler<ActionEvent> {
 
     private final String question;
     private final String answer;
+    private final int x;
+    private final int y;
+    private final Main main;
 
     public JeopardyQuestionLaunch(Main main, int x, int y) {
+        this.x = x;
+        this.y = y;
+        this.main = main;
+
         question = "this is a test";
         answer = "this is a test";
 
@@ -59,6 +67,7 @@ public class JeopardyQuestionLaunch implements EventHandler<ActionEvent> {
             textArea.setText("Question:\n" + question + "\n\nAnswer:\n" + answer);
             bottom.setCenter(null);
 
+//            Button[] teamButtons = new Button[];
         }
     }
 }
