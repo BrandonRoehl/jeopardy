@@ -1,6 +1,5 @@
 package sample;
 
-import com.sun.jdi.connect.Connector;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -30,7 +29,7 @@ public class Main extends Application {
 
         final Font defaultFont = new Font(Font.getDefault().getName(), 28);
         final Insets defaultInsets = new Insets(PADDING);
-        team = new int[]{0, 0};
+        this.team = new int[]{0, 0};
 
         primaryStage.setTitle("Jeopardy");
         BorderPane root = new BorderPane();
@@ -44,16 +43,16 @@ public class Main extends Application {
         BorderPane bottom = new BorderPane();
         bottom.setPadding(defaultInsets);
 
-        teamLabel = new Label[]{new Label("Team 1"), new Label("Team 2")};
-        for (Label label : teamLabel) { label.setFont(defaultFont); }
+        this.teamLabel = new Label[]{new Label(this.teamName[0]), new Label(this.teamName[1])};
+        for (Label label : this.teamLabel) { label.setFont(defaultFont); }
 
-        bottom.setLeft(teamLabel[0]);
-        bottom.setRight(teamLabel[1]);
+        bottom.setLeft(this.teamLabel[0]);
+        bottom.setRight(this.teamLabel[1]);
         root.setBottom(bottom);
 
         int rows = 5;
         int columns = 5;
-        buttons = new Button[rows][columns];
+        this.buttons = new Button[rows][columns];
         String[] category = {"First", "Second", "Third", "Forth", "Fifth"};
 
         for (int x = 0; x < columns; x++) {
@@ -61,12 +60,12 @@ public class Main extends Application {
             label.setFont(defaultFont);
             main.add(label, x, 0);
             for (int y = 0; y < rows; y++) {
-                buttons[x][y] = new Button();
-                buttons[x][y].setText((x + 1) + "00");
-                buttons[x][y].setPrefSize(Integer.MAX_VALUE, Integer.MAX_VALUE);
-                buttons[x][y].setFont(defaultFont);
-                buttons[x][y].setOnAction(new JeopardyQuestionLaunch(this, x, y));
-                main.add(buttons[x][y], x, y + 1);
+                this.buttons[x][y] = new Button();
+                this.buttons[x][y].setText((y + 1) + "00");
+                this.buttons[x][y].setPrefSize(Integer.MAX_VALUE, Integer.MAX_VALUE);
+                this.buttons[x][y].setFont(defaultFont);
+                this.buttons[x][y].setOnAction(new JeopardyQuestionLaunch(this, x, y));
+                main.add(this.buttons[x][y], x, y + 1);
             }
         }
 
@@ -82,11 +81,15 @@ public class Main extends Application {
     }
 
     public void addPoints(int points, int team) {
-        this.teamLabel[team].setText(teamName[team] + ": " + (this.team[team] += points));
+        this.teamLabel[team].setText(this.teamName[team] + ": " + (this.team[team] += points));
     }
 
     public void disableButton(int x, int y) {
-        buttons[x][y].setDisable(true);
+        this.buttons[x][y].setDisable(true);
+    }
+
+    public String getTeamName(int i) {
+        return this.teamName[i];
     }
 
     private void getNames() {
@@ -103,22 +106,32 @@ public class Main extends Application {
         gridPane.add(new Label("Team 1"), 0, 0);
         gridPane.add(new Label("Team 2"), 0, 1);
 
-        TextField[] team = new TextField[]{new TextField(), new TextField()};
+        TextField[] team = new TextField[]{ new TextField(), new TextField() };
         for (int i = 0; i < 2; i ++) {
             team[i].setPromptText("Name");
             gridPane.add(team[i], 1, i);
         }
 
+        Button button = new Button("Submit");
+        button.setOnAction(event -> stage.close());
+        button.setPrefWidth(Integer.MAX_VALUE);
+        gridPane.add(button, 0, 2, 2, 1);
+
         main.setCenter(gridPane);
-        Scene scene = new Scene(main, 300, 300);
+        Scene scene = new Scene(main, 300, 200);
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.centerOnScreen();
         stage.showAndWait();
 
-        System.out.println(team[0].getText());
-        System.out.println(team[1].getText());
-
+        this.teamName = new String[2];
+        for (int i = 0; i < 2; i ++) {
+            if (team[i].getText().isEmpty()){
+                this.teamName[i] = "Team " + (i + 1);
+            } else {
+                this.teamName[i] = team[i].getText();
+            }
+        }
     }
 
     public static void main(String[] args) {

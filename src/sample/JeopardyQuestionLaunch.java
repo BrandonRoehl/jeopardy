@@ -2,12 +2,10 @@ package sample;
 
 import javafx.event.EventHandler;
 import javafx.event.ActionEvent;
-import javafx.event.WeakEventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.FlowPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -67,7 +65,18 @@ public class JeopardyQuestionLaunch implements EventHandler<ActionEvent> {
             textArea.setText("Question:\n" + question + "\n\nAnswer:\n" + answer);
             bottom.setCenter(null);
 
-//            Button[] teamButtons = new Button[];
+            Button[] teamButtons = new Button[]{new Button(main.getTeamName(0)), new Button(main.getTeamName(1))};
+            bottom.setLeft(teamButtons[0]);
+            bottom.setRight(teamButtons[1]);
+
+            for (int i = 0; i < 2; i++) {
+                final int num = i;
+                teamButtons[num].setOnAction(event1 -> {
+                    main.addPoints(((y + 1) * 100), num);
+                    main.disableButton(x, y);
+                    stage.hide();
+                });
+            }
         }
     }
 }
