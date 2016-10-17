@@ -41,10 +41,10 @@ public class JeopardyQuestionLaunch implements EventHandler<ActionEvent> {
         bottom = new BorderPane();
         Button show = new Button("Revel Answer");
         show.setOnAction(new Revel());
+        show.setPrefWidth(Integer.MAX_VALUE);
         bottom.setCenter(show);
 
         root.setBottom(bottom);
-
 
         Scene scene = new Scene(root, 300, 300);
         stage = new Stage();
@@ -66,9 +66,6 @@ public class JeopardyQuestionLaunch implements EventHandler<ActionEvent> {
             bottom.setCenter(null);
 
             Button[] teamButtons = new Button[]{new Button(main.getTeamName(0)), new Button(main.getTeamName(1))};
-            bottom.setLeft(teamButtons[0]);
-            bottom.setRight(teamButtons[1]);
-
             for (int i = 0; i < 2; i++) {
                 final int num = i;
                 teamButtons[num].setOnAction(event1 -> {
@@ -77,6 +74,9 @@ public class JeopardyQuestionLaunch implements EventHandler<ActionEvent> {
                     stage.hide();
                 });
             }
+
+            bottom.setLeft(teamButtons[0]);
+            bottom.setRight(teamButtons[1]);
         }
     }
 }
