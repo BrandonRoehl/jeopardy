@@ -8,7 +8,30 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="bundles/jeopardy.app/Contents/Java/jeopardy.jar" size="7593" download="eager" />
+    <jar href="bundles/jeopardy.app/Contents/Java/bundles/jeopardy.app/Contents/Java/jeopardy.jar" size="7593" download="eager" />
+    <jar href="bundles/jeopardy.app/Contents/Java/bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/charsets.jar" size="3135413" download="eager" />
+    <jar href="bundles/jeopardy.app/Contents/Java/bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/deploy.jar" size="2224092" download="eager" />
+    <jar href="bundles/jeopardy.app/Contents/Java/bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/ext/cldrdata.jar" size="3860522" download="eager" />
+    <jar href="bundles/jeopardy.app/Contents/Java/bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/ext/dnsns.jar" size="8286" download="eager" />
+    <jar href="bundles/jeopardy.app/Contents/Java/bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/ext/jaccess.jar" size="44516" download="eager" />
+    <jar href="bundles/jeopardy.app/Contents/Java/bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/ext/jfxrt.jar" size="18552430" download="eager" />
+    <jar href="bundles/jeopardy.app/Contents/Java/bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/ext/localedata.jar" size="1178848" download="eager" />
+    <jar href="bundles/jeopardy.app/Contents/Java/bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/ext/nashorn.jar" size="2018859" download="eager" />
+    <jar href="bundles/jeopardy.app/Contents/Java/bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/ext/sunec.jar" size="39771" download="eager" />
+    <jar href="bundles/jeopardy.app/Contents/Java/bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/ext/sunjce_provider.jar" size="278718" download="eager" />
+    <jar href="bundles/jeopardy.app/Contents/Java/bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/ext/sunpkcs11.jar" size="250826" download="eager" />
+    <jar href="bundles/jeopardy.app/Contents/Java/bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/ext/zipfs.jar" size="68923" download="eager" />
+    <jar href="bundles/jeopardy.app/Contents/Java/bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/javaws.jar" size="475484" download="eager" />
+    <jar href="bundles/jeopardy.app/Contents/Java/bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/jce.jar" size="114950" download="eager" />
+    <jar href="bundles/jeopardy.app/Contents/Java/bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/jfxswt.jar" size="33930" download="eager" />
+    <jar href="bundles/jeopardy.app/Contents/Java/bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/jsse.jar" size="633956" download="eager" />
+    <jar href="bundles/jeopardy.app/Contents/Java/bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/management-agent.jar" size="381" download="eager" />
+    <jar href="bundles/jeopardy.app/Contents/Java/bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/plugin.jar" size="944999" download="eager" />
+    <jar href="bundles/jeopardy.app/Contents/Java/bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/resources.jar" size="3501646" download="eager" />
+    <jar href="bundles/jeopardy.app/Contents/Java/bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/rt.jar" size="66610561" download="eager" />
+    <jar href="bundles/jeopardy.app/Contents/Java/bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/security/US_export_policy.jar" size="3026" download="eager" />
+    <jar href="bundles/jeopardy.app/Contents/Java/bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/security/local_policy.jar" size="3527" download="eager" />
+    <jar href="bundles/jeopardy.app/Contents/Java/jeopardy.jar" size="21533165" download="eager" />
     <jar href="bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/charsets.jar" size="3135413" download="eager" />
     <jar href="bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/deploy.jar" size="2224092" download="eager" />
     <jar href="bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/ext/cldrdata.jar" size="3860522" download="eager" />
@@ -31,11 +54,11 @@
     <jar href="bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/rt.jar" size="66610561" download="eager" />
     <jar href="bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/security/US_export_policy.jar" size="3026" download="eager" />
     <jar href="bundles/jeopardy.app/Contents/PlugIns/Java.runtime/Contents/Home/jre/lib/security/local_policy.jar" size="3527" download="eager" />
-    <jar href="jeopardy.jar" size="21533165" download="eager" />
+    <jar href="jeopardy.jar" size="21534225" download="eager" />
   </resources>
 <security>
   <all-permissions/>
 </security>
-  <jfx:javafx-desc  width="600" height="400" main-class="sample.Main"  name="jeopardy" />
+  <jfx:javafx-desc  width="600" height="400" main-class="io.github.brandonroehl.jepoardy.Main"  name="jeopardy" />
   <update check="background"/>
 </jnlp>
