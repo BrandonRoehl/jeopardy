@@ -28,14 +28,15 @@ public class JeopardyQuestionLaunch implements EventHandler<ActionEvent> {
         this.y = y;
         this.main = main;
 
-        question = "this is a test";
-        answer = "this is a test";
+        question = main.getQuestion(x, y);
+        answer = main.getAnswer(x, y);
 
         BorderPane root = new BorderPane();
 
         textArea = new TextArea("Question:\n" + question);
         textArea.setEditable(false);
         textArea.setFocusTraversable(false);
+        textArea.setWrapText(true);
         root.setCenter(textArea);
 
         bottom = new BorderPane();
@@ -63,7 +64,13 @@ public class JeopardyQuestionLaunch implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent event) {
             textArea.setText("Question:\n" + question + "\n\nAnswer:\n" + answer);
-            bottom.setCenter(null);
+
+            Button neither = new Button("Neither");
+            neither.setOnAction(event1 -> {
+                main.disableButton(x, y);
+                stage.hide();
+            });
+            bottom.setCenter(neither);
 
             Button[] teamButtons = new Button[]{new Button(main.getTeamName(0)), new Button(main.getTeamName(1))};
             for (int i = 0; i < 2; i++) {

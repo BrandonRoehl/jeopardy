@@ -106,6 +106,14 @@ public class Main extends Application {
         return this.teamName[i];
     }
 
+    public String getQuestion(int x, int y) {
+        return this.questions.get(y).get(x);
+    }
+
+    public String getAnswer(int x, int y) {
+        return this.answers.get(y).get(x);
+    }
+
     private void getNames() {
         Stage stage = new Stage();
         BorderPane main = new BorderPane();
@@ -173,11 +181,11 @@ public class Main extends Application {
         this.answers = new ArrayList<>();
 
         while (scan.hasNextRow()){
-            boolean question = true;
-            List<String>[] part = new List[]{new ArrayList<>(), new ArrayList<>()};
+            boolean alt = true;
+            List<String>[] part = new List[]{new ArrayList<String>(), new ArrayList<String>()};
             for (String element : scan.nextRow()){
-                part[question ? 0 : 1].add(element);
-                question = !question;
+                part[alt ? 0 : 1].add(element);
+                alt = !alt;
             }
             this.questions.add(part[0]);
             this.answers.add(part[1]);
