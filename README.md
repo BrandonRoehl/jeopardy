@@ -6,7 +6,6 @@ For examples check out the [example\_csvs](https://github.com/BrandonRoehl/jeopa
 
 ## Downloads
 * [Releases](https://github.com/BrandonRoehl/jeopardy/releases)
-* [Artifacts Folder](https://github.com/BrandonRoehl/jeopardy/tree/master/out/artifacts/jeopardy)
 
 # Lisence Apache License 
 Feel free to fork and tear this apart. Happy coding!
