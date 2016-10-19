@@ -2,6 +2,7 @@ package sample;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
+
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -10,9 +11,17 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
+import java.io.File;
+import java.io.IOException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main extends Application {
     private static final int PADDING = 5;
@@ -21,10 +30,18 @@ public class Main extends Application {
     private Button[][] buttons;
     private int[] team;
     private Label[] teamLabel;
+    private List<String> category;
+
+    private List<List<String>> questions;
+    private List<List<String>> answers;
+
+    private int rows = 5;
+    private int columns = 5;
 
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        readFile(primaryStage);
         getNames();
 
         final Font defaultFont = new Font(Font.getDefault().getName(), 28);
@@ -50,13 +67,10 @@ public class Main extends Application {
         bottom.setRight(this.teamLabel[1]);
         root.setBottom(bottom);
 
-        int rows = 5;
-        int columns = 5;
         this.buttons = new Button[rows][columns];
-        String[] category = {"First", "Second", "Third", "Forth", "Fifth"};
 
         for (int x = 0; x < columns; x++) {
-            Label label = new Label(category[x]);
+            Label label = new Label(category.get(x));
             label.setFont(defaultFont);
             main.add(label, x, 0);
             for (int y = 0; y < rows; y++) {
@@ -134,7 +148,46 @@ public class Main extends Application {
         }
     }
 
-    public static void main(String[] args) {
+
+    private void readFile(Stage stage) throws IOException {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Game Board File");
+        fileChooser.getExtensionFilters().clear();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Table", "*.csv"));
+
+        File file = fileChooser.showOpenDialog(stage);
+        if (file == null) System.exit(0);
+
+        CSVScanner scan = new CSVScanner(file);
+        List<String> tmp = scan.nextRow();
+        this.category = new ArrayList<>();
+        for(int i = 0; i < tmp.size(); i += 2) {
+            if (tmp.get(i).isEmpty()) {
+                this.category.add("Column " + ((i / 2) + 1));
+            } else {
+                this.category.add(tmp.get(i));
+            }
+        }
+
+        this.questions = new ArrayList<>();
+        this.answers = new ArrayList<>();
+
+        while (scan.hasNextRow()){
+            boolean question = true;
+            List<String>[] part = new List[]{new ArrayList<>(), new ArrayList<>()};
+            for (String element : scan.nextRow()){
+                part[question ? 0 : 1].add(element);
+                question = !question;
+            }
+            this.questions.add(part[0]);
+            this.answers.add(part[1]);
+        }
+
+        this.rows = questions.size();
+        this.columns = questions.get(0).size();
+    }
+
+    public static void main (String[] args) {
         launch(args);
     }
 }
