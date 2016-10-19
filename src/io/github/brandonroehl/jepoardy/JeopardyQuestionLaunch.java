@@ -1,4 +1,4 @@
-package sample;
+package io.github.brandonroehl.jepoardy;
 
 import javafx.event.EventHandler;
 import javafx.event.ActionEvent;

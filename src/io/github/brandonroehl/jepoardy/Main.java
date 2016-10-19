@@ -1,4 +1,4 @@
-package sample;
+package io.github.brandonroehl.jepoardy;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
