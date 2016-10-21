@@ -25,8 +25,7 @@ public class CSVScanner {
             String tmp = line.next();
             if (tmp.startsWith("\"")) {
                 while ((!tmp.endsWith("\"") || tmp.endsWith("\"\"")) && line.hasNext()) {
-                    if (tmp.endsWith("\"\"")) tmp += ",";
-                    tmp += line.next();
+                    tmp += "," + line.next();
                 }
                 tmp = tmp.substring(1, tmp.length() - 1);
                 tmp = tmp.replaceAll("\"\"", "\"");
